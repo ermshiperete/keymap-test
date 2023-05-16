@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "clean", "command": "rm",
+      "args": [
+        "-rf",
+        "${workspaceFolder}/build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "detail": "clean"
+    },
+    {
+      "type": "shell",
+      "label": "configure",
+      "command": "meson",
+      "args": [
+        "setup",
+        "${workspaceFolder}/build",
+        "--werror",
+        "--buildtype",
+        "debug",
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+      },
+      "presentation": {
+        "clear": true
+      },
+      "group": "build",
+      "detail": "configure"
+    },
+    {
+      "type": "shell",
+      "label": "build",
+      "command": "ninja",
+      "args": [
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "problemMatcher": [
+        {
+          "owner": "cpp",
+          "source": "compiler",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}/"
+          ],
+          "pattern": [
+            {
+              "regexp": "^../(.*):(\\d+):(\\d+):\\s+(warning|error|note):\\s+(.*)(\\s+\\[.*\\])?$",
+              "file": 1,
+              "line": 2,
+              "column": 3,
+              "severity": 4,
+              "message": 5
+            }
+          ]
+        },
+        {
+          "owner": "cpp",
+          "source": "linker",
+          "fileLocation": "absolute",
+          "pattern": [
+            {
+              "regexp": "^(/usr/bin/ld:\\s+)?(.*):(\\d+):\\s+(.*)$",
+              "file": 2,
+              "location": 3,
+              "message": 4
+            }
+          ]
+        }
+      ],
+      "presentation": {
+        "clear": true
+      },
+      "group": "build",
+      "detail": "build"
+    },
+  ]
+}

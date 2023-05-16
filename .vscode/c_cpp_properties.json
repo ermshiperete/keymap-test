@@ -1,0 +1,47 @@
+{
+  "configurations": [
+    {
+      "name": "linux",
+      "includePath": [
+        "${workspaceFolder}/common/include",
+        "${workspaceFolder}/common/include/**",
+        "${workspaceFolder}/core/include",
+        "${workspaceFolder}/core/include/**",
+        "${workspaceFolder}/core/src/",
+        "${workspaceFolder}/core/src/**",
+        "${workspaceFolder}/core/tests/unit/kmx/",
+        "${workspaceFolder}/core/tests/unit/kmx/**",
+        "${workspaceFolder}/core/tests/kmx_test_source/",
+        // "${workspaceFolder}/common/core/desktop/build/arch/debug/include/",
+        "${workspaceFolder}/core/build/arch/debug/include/",
+        "${workspaceFolder}/linux/ibus-keyman/src",
+        "${workspaceFolder}/linux/keyman-system-service/src",
+        "${workspaceFolder}/linux/keyman-system-service/build/x86_64/debug/src",
+        "${workspaceFolder}/../ibus/ibus/src",
+        "/usr/include",
+        "/usr/include/**",
+        "/usr/include/x86_64-linux-gnu",
+        "/usr/lib/x86_64-linux-gnu/**",
+        "/usr/include/glib-2.0/",
+        "/usr/include/glib-2.0/glib/",
+        "/usr/lib/x86_64-linux-gnu/glib-2.0/include/",
+        "/usr/include/gtk-3.0/",
+        "/usr/include/libevdev-1.0",
+        "/usr/include/c++/11"
+      ],
+      // for whatever reason vscode doesn't find the types `gboolean` and `gint`, so we define them here
+      "defines": [
+        "gboolean=uint",
+        "gint=int",
+        "__USER_MISC"
+      ],
+      "compilerPath": "/usr/lib/ccache/clang",
+      "cStandard": "c11",
+      "cppStandard": "c++14",
+      "intelliSenseMode": "clang-x64",
+      "compileCommands": "${workspaceFolder}/core/build/arch/debug/compile_commands.json",
+      "configurationProvider": "ms-vscode.makefile-tools"
+    }
+  ],
+  "version": 4
+}
